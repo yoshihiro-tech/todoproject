@@ -1,7 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView
+from django.views.generic import DetailView
 
-# Create your views here.
 
-def todo(request):
-    return HttpResponse('')
+from todo.models import TodoModel
+
+
+class TodoList(ListView):
+    template_name = 'list.html'
+    model = TodoModel
+
+
+class TodoDetail(DetailView):
+    template_name = 'detail.html'
+    model = TodoModel
